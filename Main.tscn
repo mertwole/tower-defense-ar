@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://bm3jwptrrf4tg"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_awuli"]
+[ext_resource type="Script" path="res://Gun/GunController.cs" id="2_5fgqg"]
+[ext_resource type="Script" path="res://scene_manager.gd" id="4_6rs5d"]
+[ext_resource type="PackedScene" uid="uid://ddcd7dxmh4qu" path="res://Spatial/env_object.tscn" id="4_y7ggk"]
+[ext_resource type="PackedScene" uid="uid://tq6vijbgmadj" path="res://Hands/LeftHand.tscn" id="6_ju36i"]
+[ext_resource type="Script" path="res://Test.cs" id="6_jy0x6"]
+[ext_resource type="PackedScene" uid="uid://bofws41roxivm" path="res://gizmo.tscn" id="7_dq6xb"]
+[ext_resource type="PackedScene" uid="uid://c8xfcmfrmpvl8" path="res://Hands/RightHand.tscn" id="7_veijl"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_awuli")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.918232, 0.329074, 0.220363, -0.396042, 0.762965, 0.510916, 0, -0.556412, 0.830906, 0, 0, 0)
+sky_mode = 1
+
+[node name="XROrigin" type="XROrigin3D" parent="."]
+
+[node name="Camera" type="XRCamera3D" parent="XROrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="OpenXRFbSceneManager" type="OpenXRFbSceneManager" parent="XROrigin"]
+default_scene = ExtResource("4_y7ggk")
+script = ExtResource("4_6rs5d")
+
+[node name="LeftController" type="XRController3D" parent="XROrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+show_when_tracked = true
+
+[node name="RightController" type="XRController3D" parent="XROrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+show_when_tracked = true
+script = ExtResource("2_5fgqg")
+
+[node name="LeftHandTracker" type="XRNode3D" parent="XROrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"/user/hand_tracker/left"
+show_when_tracked = true
+
+[node name="LeftHand" parent="XROrigin/LeftHandTracker" instance=ExtResource("6_ju36i")]
+
+[node name="RightHandInput" type="XRController3D" parent="XROrigin" node_paths=PackedStringArray("handInput")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"/user/fbhandaim/right"
+script = ExtResource("6_jy0x6")
+handInput = NodePath("../RightHandTracker/RightHand")
+debugGizmo = ExtResource("7_dq6xb")
+
+[node name="RightHandTracker" type="XRNode3D" parent="XROrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"/user/hand_tracker/right"
+show_when_tracked = true
+
+[node name="RightHand" parent="XROrigin/RightHandTracker" instance=ExtResource("7_veijl")]
+
+[connection signal="button_pressed" from="XROrigin/RightController" to="XROrigin/RightController" method="OnButtonPressed"]
+[connection signal="button_released" from="XROrigin/RightController" to="XROrigin/RightController" method="OnButtonReleased"]
+[connection signal="button_pressed" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonPressed"]
+[connection signal="button_released" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonReleased"]

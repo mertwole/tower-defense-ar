@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2rpdqjo377nh"]
+
+[ext_resource type="Script" path="res://Gun/Gun.cs" id="1_c02m8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f11nu"]
+
+[node name="Gun" type="Node3D"]
+transform = Transform3D(0.999872, 0, 0, 0, 0.999872, 0, 0, 0, 0.999872, 0, 0, 0)
+script = ExtResource("1_c02m8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.100019, 0, 0, 0, -8.74395e-09, 0.100019, 0, -0.200038, -4.37197e-09, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_f11nu")

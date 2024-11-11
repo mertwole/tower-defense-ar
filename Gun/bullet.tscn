@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bokum7j4frvvi"]
+
+[ext_resource type="Script" path="res://Gun/RandomColor.cs" id="1_35u5n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_afd7o"]
+bounce = 0.34
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x3hjf"]
+radius = 0.501339
+
+[sub_resource type="SphereMesh" id="SphereMesh_wdwnt"]
+
+[node name="Bullet" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_afd7o")
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_x3hjf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_wdwnt")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0796225, 0)
+visible = false
+script = ExtResource("1_35u5n")
