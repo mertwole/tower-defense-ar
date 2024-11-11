@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm3jwptrrf4tg"]
+[gd_scene load_steps=8 format=3 uid="uid://bm3jwptrrf4tg"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_awuli"]
-[ext_resource type="Script" path="res://Gun/GunController.cs" id="2_5fgqg"]
 [ext_resource type="Script" path="res://scene_manager.gd" id="4_6rs5d"]
 [ext_resource type="PackedScene" uid="uid://ddcd7dxmh4qu" path="res://Spatial/env_object.tscn" id="4_y7ggk"]
 [ext_resource type="PackedScene" uid="uid://tq6vijbgmadj" path="res://Hands/LeftHand.tscn" id="6_ju36i"]
@@ -34,7 +33,6 @@ show_when_tracked = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
 show_when_tracked = true
-script = ExtResource("2_5fgqg")
 
 [node name="LeftHandTracker" type="XRNode3D" parent="XROrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
@@ -57,7 +55,5 @@ show_when_tracked = true
 
 [node name="RightHand" parent="XROrigin/RightHandTracker" instance=ExtResource("7_veijl")]
 
-[connection signal="button_pressed" from="XROrigin/RightController" to="XROrigin/RightController" method="OnButtonPressed"]
-[connection signal="button_released" from="XROrigin/RightController" to="XROrigin/RightController" method="OnButtonReleased"]
 [connection signal="button_pressed" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonPressed"]
 [connection signal="button_released" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonReleased"]
