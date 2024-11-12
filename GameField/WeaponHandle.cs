@@ -25,6 +25,7 @@ public partial class WeaponHandle : Handle
     {
         var imaginaryWeaponPivot = initialPosition - initialHandlePosition + position;
         var snapPoint = TryGetClosestSnapPoint(imaginaryWeaponPivot);
+
         if (snapPoint != null)
         {
             currentSnapPoint = snapPoint;
