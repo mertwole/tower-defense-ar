@@ -42,114 +42,115 @@
 [node name="TileCollection" type="Node3D"]
 
 [node name="snow-tile-bump" parent="." instance=ExtResource("1_rwybo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.2, 1)
 
 [node name="snow-tile-corner-inner" parent="." instance=ExtResource("2_y74vy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, 3)
 
 [node name="snow-tile-corner-large" parent="." instance=ExtResource("3_g1thi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -0.2, -4.5)
 
 [node name="snow-tile-corner-outer" parent="." instance=ExtResource("4_wvugc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, 4)
 
 [node name="snow-tile-corner-round" parent="." instance=ExtResource("5_vklsd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.2, 2)
 
 [node name="snow-tile-corner-square" parent="." instance=ExtResource("6_o6cgh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.2, -2)
 
 [node name="snow-tile-crossing" parent="." instance=ExtResource("7_25qb6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.2, -1)
 
 [node name="snow-tile-crystal" parent="." instance=ExtResource("8_np8hc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, -5)
 
 [node name="snow-tile-dirt" parent="." instance=ExtResource("9_hg6wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.2, -1)
 
 [node name="snow-tile-end-round" parent="." instance=ExtResource("10_76tiw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.2, 1)
 
 [node name="snow-tile-end" parent="." instance=ExtResource("11_v5odn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -2)
 
 [node name="snow-tile-hill" parent="." instance=ExtResource("12_w2ple")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, -2)
 
 [node name="snow-tile-river-bridge" parent="." instance=ExtResource("13_vhdrq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, -0.2, -5)
 
 [node name="snow-tile-river-corner" parent="." instance=ExtResource("14_jgrne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.2, -5)
 
 [node name="snow-tile-river-slope-large" parent="." instance=ExtResource("15_1y2tr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.2, -4.5)
 
 [node name="snow-tile-river-slope" parent="." instance=ExtResource("16_2w26e")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.2, -5)
 
 [node name="snow-tile-river-straight" parent="." instance=ExtResource("17_2wwu3")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -0.2, -5)
 
 [node name="snow-tile-river-transition" parent="." instance=ExtResource("18_p8n2o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.2, -4)
 
 [node name="snow-tile-river-waterfall" parent="." instance=ExtResource("19_0g50t")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, -0.2, -5)
 
 [node name="snow-tile-rock" parent="." instance=ExtResource("20_15uow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, -3)
 
 [node name="snow-tile-slope" parent="." instance=ExtResource("21_jhfqa")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, 2)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, -0.2, 2)
 
 [node name="snow-tile-spawn-end-round" parent="." instance=ExtResource("22_le7p3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.2, 0)
 
 [node name="snow-tile-spawn-end" parent="." instance=ExtResource("23_l8kij")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 2)
 
 [node name="snow-tile-spawn-round" parent="." instance=ExtResource("24_fhtkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
 [node name="snow-tile-spawn" parent="." instance=ExtResource("25_gmsrx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.2, 3)
 
 [node name="snow-tile-split" parent="." instance=ExtResource("26_xk15y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.2, -3)
 
 [node name="snow-tile-straight-slope-large" parent="." instance=ExtResource("27_8ow7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.2, -1.5)
 
 [node name="snow-tile-straight-slope" parent="." instance=ExtResource("28_ya5g7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 4)
 
 [node name="snow-tile-straight" parent="." instance=ExtResource("29_6yp4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.2, 4)
 
 [node name="snow-tile-transition" parent="." instance=ExtResource("30_uuuxc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.2, 3)
 
 [node name="snow-tile-tree-double" parent="." instance=ExtResource("31_6a70c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, -4)
 
 [node name="snow-tile-tree-quad" parent="." instance=ExtResource("32_gcb8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, -1)
 
 [node name="snow-tile-tree" parent="." instance=ExtResource("33_mppnh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, 0)
 
 [node name="snow-tile-wide-corner" parent="." instance=ExtResource("34_c1cay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -0.2, -1.5)
 
 [node name="snow-tile-wide-split" parent="." instance=ExtResource("35_5dy4v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.2, 3)
 
 [node name="snow-tile-wide-straight" parent="." instance=ExtResource("36_mmeav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.2, 1)
 
 [node name="snow-tile-wide-transition" parent="." instance=ExtResource("37_dd6ag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.2, 5)
 
 [node name="snow-tile" parent="." instance=ExtResource("38_ijc6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00195, 0.00268984, 4.99757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00195, -0.19731, 4.99757)

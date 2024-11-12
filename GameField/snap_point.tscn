@@ -1,20 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://comoen40v8sea"]
+[gd_scene load_steps=3 format=3 uid="uid://comoen40v8sea"]
 
 [ext_resource type="Script" path="res://GameField/SnapPoint.cs" id="1_yrj5p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcqqj"]
 size = Vector3(1, 2.5, 1)
 
-[sub_resource type="SphereMesh" id="SphereMesh_sppch"]
-
 [node name="snap_point" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.702617, 4.5)
 script = ExtResource("1_yrj5p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 shape = SubResource("BoxShape3D_tcqqj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2.5, 0)
-mesh = SubResource("SphereMesh_sppch")
