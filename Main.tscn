@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm3jwptrrf4tg"]
+[gd_scene load_steps=10 format=3 uid="uid://bm3jwptrrf4tg"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_awuli"]
 [ext_resource type="Script" path="res://scene_manager.gd" id="4_6rs5d"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bofws41roxivm" path="res://gizmo.tscn" id="7_dq6xb"]
 [ext_resource type="PackedScene" uid="uid://c8xfcmfrmpvl8" path="res://Hands/RightHand.tscn" id="7_veijl"]
 [ext_resource type="PackedScene" uid="uid://hyayrl1i7360" path="res://GameField/game_field.tscn" id="8_2b5ty"]
+[ext_resource type="PackedScene" uid="uid://csdrfd77n1q44" path="res://GameField/Building/turret.tscn" id="9_hi3gv"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_awuli")
@@ -58,6 +59,15 @@ show_when_tracked = true
 
 [node name="GameField" parent="XROrigin" instance=ExtResource("8_2b5ty")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0144036, 1.1029, -0.525513)
+
+[node name="Turret" parent="XROrigin/GameField" instance=ExtResource("9_hi3gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27993, 0, -5.70795)
+
+[node name="Turret2" parent="XROrigin/GameField" instance=ExtResource("9_hi3gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2153, 0, -5.53987)
+
+[node name="Turret3" parent="XROrigin/GameField" instance=ExtResource("9_hi3gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27246, -0.0152264, -3.30019)
 
 [connection signal="button_pressed" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonPressed"]
 [connection signal="button_released" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonReleased"]
