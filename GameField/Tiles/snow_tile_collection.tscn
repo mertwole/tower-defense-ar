@@ -39,7 +39,6 @@
 [ext_resource type="PackedScene" uid="uid://csbuvlek8725j" path="res://GameField/Tiles/Snow/snow-tile-wide-transition.fbx" id="37_dd6ag"]
 [ext_resource type="PackedScene" uid="uid://chto0hncaxisx" path="res://GameField/Tiles/Snow/snow-tile.fbx" id="38_ijc6y"]
 
-
 [node name="TileCollection" type="Node3D"]
 
 [node name="snow-tile-bump" parent="." instance=ExtResource("1_rwybo")]
@@ -153,4 +152,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 5)
 
 [node name="snow-tile" parent="." instance=ExtResource("38_ijc6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00195, 0.00268984, 4.99757)

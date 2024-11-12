@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://hhsa5kjxifhu"]
+
+[ext_resource type="Script" path="res://GameField/SnapPoint.cs" id="1_1wcwa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i5x5a"]
+radius = 0.01
+
+[node name="PlaceSlot" type="Node3D"]
+script = ExtResource("1_1wcwa")
+
+[node name="Area3D" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_i5x5a")

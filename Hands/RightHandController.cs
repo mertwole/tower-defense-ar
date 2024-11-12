@@ -47,13 +47,13 @@ public partial class RightHandController : XRController3D
 		var space = GetWorld3D().DirectSpaceState;
 		var result = space.IntersectPoint(query);
 
-		foreach (var maybe_handle in result)
+		foreach (var maybeHandle in result)
 		{
-			var collider = maybe_handle["collider"];
+			var collider = maybeHandle["collider"];
 
 			if (collider.VariantType != Variant.Type.Object)
 			{
-				break;
+				continue;
 			}
 
 			if (collider.AsGodotObject() is Handle handle)
