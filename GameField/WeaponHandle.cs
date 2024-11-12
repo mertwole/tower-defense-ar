@@ -23,7 +23,8 @@ public partial class WeaponHandle : Handle
 
     public override void Move(Vector3 position)
     {
-        var snapPoint = TryGetClosestSnapPoint(position);
+        var imaginaryWeaponPivot = initialPosition - initialHandlePosition + position;
+        var snapPoint = TryGetClosestSnapPoint(imaginaryWeaponPivot);
         if (snapPoint != null)
         {
             currentSnapPoint = snapPoint;
@@ -33,7 +34,6 @@ public partial class WeaponHandle : Handle
         {
             weapon.GlobalPosition = initialPosition + (position - initialHandlePosition);
         }
-
     }
 
     public override void Release()
