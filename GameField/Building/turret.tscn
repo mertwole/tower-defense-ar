@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://csdrfd77n1q44"]
+
+[ext_resource type="PackedScene" uid="uid://dbndk0ifeiddm" path="res://GameField/Tiles/Weapon/weapon-turret.fbx" id="1_x1a00"]
+[ext_resource type="PackedScene" uid="uid://l3sg63v0nlc6" path="res://GameField/Tiles/RoundTowerParts/tower-round-base.fbx" id="2_e1525"]
+[ext_resource type="Script" path="res://GameField/Handle.cs" id="3_dqeey"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4a6te"]
+radius = 0.75
+
+[node name="Turret" type="Node3D"]
+
+[node name="Handle" type="Area3D" parent="." node_paths=PackedStringArray("movedObject")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231122, 0)
+script = ExtResource("3_dqeey")
+movedObject = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Handle"]
+shape = SubResource("SphereShape3D_4a6te")
+
+[node name="weapon-turret" parent="." instance=ExtResource("1_x1a00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000344336, 0.158048, -3.67761e-05)
+
+[node name="tower-round-base" parent="." instance=ExtResource("2_e1525")]

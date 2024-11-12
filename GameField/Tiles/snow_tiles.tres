@@ -1,6 +1,6 @@
 [gd_resource type="MeshLibrary" load_steps=192 format=4 uid="uid://cdoobjl1j0ua2"]
 
-[ext_resource type="Texture2D" uid="uid://dxmbr83o0nt2p" path="res://GameField/Tiles/FBX/Textures/colormap.png" id="1_tpg8v"]
+[ext_resource type="Texture2D" uid="uid://bpdy7qahsselx" path="res://GameField/Tiles/colormap.png" id="1_tpg8v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46qs4"]
 resource_name = "colormap"
