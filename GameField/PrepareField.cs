@@ -6,6 +6,8 @@ public partial class PrepareField : GridMap
 	private GridMap snapPointMarkers;
 	[Export]
 	private PackedScene snapPointScene;
+	[Export]
+	private float terrainThickness;
 
 	public override void _Ready()
 	{
@@ -13,6 +15,7 @@ public partial class PrepareField : GridMap
 		foreach (var snapPointPosition in validSnapPoints)
 		{
 			var positon = MapToLocal(snapPointPosition);
+			positon.Y += terrainThickness;
 
 			var instance = snapPointScene.Instantiate() as Node3D;
 			AddChild(instance);
