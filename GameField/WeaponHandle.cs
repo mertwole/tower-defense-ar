@@ -12,6 +12,11 @@ public partial class WeaponHandle : Handle
 
     public override void Take(Vector3 position)
     {
+        if (currentSnapPoint != null)
+        {
+            currentSnapPoint.Taken = false;
+        }
+
         initialPosition = weapon.GlobalPosition;
         initialHandlePosition = position;
     }
@@ -42,8 +47,8 @@ public partial class WeaponHandle : Handle
     private SnapPoint TryGetClosestSnapPoint(Vector3 position)
     {
         var query = new PhysicsPointQueryParameters3D();
-        query.CollideWithAreas = false;
-        query.CollideWithBodies = true;
+        query.CollideWithAreas = true;
+        query.CollideWithBodies = false;
         query.Position = position;
 
         var space = GetWorld3D().DirectSpaceState;
