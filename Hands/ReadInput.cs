@@ -13,6 +13,7 @@ public partial class ReadInput : Node3D
 
 	public Vector3 IndexTipPosition { get; private set; }
 	public Vector3 ThumbTipPosition { get; private set; }
+	public Vector3 PinchPosition { get => (IndexTipPosition + ThumbTipPosition) * new Vector3(.5f, .5f, .5f); }
 
 	public override void _Ready()
 	{
