@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://sa7lp1gsjal1"]
+
+[ext_resource type="PackedScene" uid="uid://btmklpsfuh4kc" path="res://GameField/Enemies/Models/enemy-ufo-a.fbx" id="1_3orc4"]
+[ext_resource type="PackedScene" uid="uid://vmgn7woy0peg" path="res://GameField/Enemies/Models/enemy-ufo-beam.fbx" id="2_wbm32"]
+
+[node name="Enemy" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_3orc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.833584, 0)
+
+[node name="enemy-ufo-beam" parent="." instance=ExtResource("2_wbm32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.162444, 0)

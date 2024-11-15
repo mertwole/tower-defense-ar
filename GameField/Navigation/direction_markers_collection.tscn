@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cff6nqu1l8nyp"]
+
+[sub_resource type="TextMesh" id="TextMesh_t22vp"]
+text = "=>"
+
+[node name="Root" type="Node3D"]
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
+mesh = SubResource("TextMesh_t22vp")
