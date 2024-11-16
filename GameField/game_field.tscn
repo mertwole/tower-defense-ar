@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://comoen40v8sea" path="res://GameField/snap_point.tscn" id="3_56ckc"]
 [ext_resource type="Script" path="res://GameField/PrepareField.cs" id="3_drv81"]
 [ext_resource type="MeshLibrary" uid="uid://c35h1067k8vc3" path="res://GameField/Tiles/snap_point_markers.tres" id="3_ja0ks"]
-[ext_resource type="MeshLibrary" uid="uid://blea2viuktbwh" path="res://GameField/Navigation/direction_markers.tres" id="6_yfr8d"]
+[ext_resource type="MeshLibrary" uid="uid://p3uqx88ye3qb" path="res://GameField/Navigation/navigation_markers.tres" id="6_yh8el"]
 [ext_resource type="Script" path="res://GameField/Navigation/PrepareNavigation.cs" id="7_nuu3e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5yfp"]
@@ -52,12 +52,11 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Navigation" type="GridMap" parent="Tiles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-visible = false
-mesh_library = ExtResource("6_yfr8d")
+mesh_library = ExtResource("6_yh8el")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(0, 65529, 1507328, 0, 65532, 917504, 65532, 65532, 1507328, 65532, 65534, 262144, 65532, 2, 1245184, 3, 2, 917504, 0, 65534, 1507328, 0, 0, 262144, 2, 0, 1245184, 2, 65533, 262144, 5, 65533, 458752)
+"cells": PackedInt32Array(0, 65529, 1376257, 3, 2, 393218, 65532, 2, 1114112, 65532, 65534, 786432, 65532, 65532, 1376256, 0, 65532, 393216, 0, 65534, 1376256, 0, 0, 786432, 2, 0, 1114112, 2, 65533, 786432, 5, 65533, 786435)
 }
 script = ExtResource("7_nuu3e")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
