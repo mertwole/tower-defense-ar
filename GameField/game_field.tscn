@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://hyayrl1i7360"]
+[gd_scene load_steps=12 format=3 uid="uid://hyayrl1i7360"]
 
 [ext_resource type="Script" path="res://GameField/FieldHandle.cs" id="1_6mcsw"]
 [ext_resource type="MeshLibrary" uid="uid://cdoobjl1j0ua2" path="res://GameField/Tiles/snow_tiles.tres" id="1_gvfws"]
 [ext_resource type="PackedScene" uid="uid://comoen40v8sea" path="res://GameField/snap_point.tscn" id="3_56ckc"]
 [ext_resource type="Script" path="res://GameField/PrepareField.cs" id="3_drv81"]
 [ext_resource type="MeshLibrary" uid="uid://c35h1067k8vc3" path="res://GameField/Tiles/snap_point_markers.tres" id="3_ja0ks"]
+[ext_resource type="Script" path="res://GameField/Enemies/Spawn.cs" id="5_xxoke"]
+[ext_resource type="PackedScene" uid="uid://sa7lp1gsjal1" path="res://GameField/Enemies/enemy.tscn" id="6_lp3k7"]
 [ext_resource type="MeshLibrary" uid="uid://p3uqx88ye3qb" path="res://GameField/Navigation/navigation_markers.tres" id="6_yh8el"]
-[ext_resource type="Script" path="res://GameField/Navigation/PrepareNavigation.cs" id="7_nuu3e"]
+[ext_resource type="Script" path="res://GameField/Navigation/Navigation.cs" id="7_nuu3e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5yfp"]
 
@@ -39,6 +41,11 @@ snapPointMarkers = NodePath("SnapPoints")
 snapPointScene = ExtResource("3_56ckc")
 terrainThickness = 0.2
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Spawn" type="Node3D" parent="Tiles" node_paths=PackedStringArray("navigation")]
+script = ExtResource("5_xxoke")
+navigation = NodePath("../Navigation")
+enemy = ExtResource("6_lp3k7")
 
 [node name="SnapPoints" type="GridMap" parent="Tiles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207143, 0)
