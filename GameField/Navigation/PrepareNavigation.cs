@@ -1,18 +1,51 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 
 public partial class PrepareNavigation : GridMap
 {
+	Vector3I end;
+	List<Vector3I> spawns = new List<Vector3I>();
+	Dictionary<Vector3I, Vector3I> directions = new Dictionary<Vector3I, Vector3I>();
+
 	public override void _Ready()
 	{
 		var usedCells = GetUsedCells();
 
+		bool endFound = false;
+
 		foreach (var cell in usedCells)
 		{
-			var orientation = GetCellItemOrientation(cell);
-			var direction = OrientationToDirection(orientation);
+			var id = GetCellItem(cell);
+			var name = MeshLibrary.GetItemName(id);
 
-			// TODO: Fill map.
+			switch (name)
+			{
+				case "End":
+					end = cell;
+					endFound = true;
+					break;
+				case "Direction":
+					var orientation = GetCellItemOrientation(cell);
+					var direction = OrientationToDirection(orientation);
+					directions.Add(cell, direction);
+					break;
+				default:
+					if (name.StartsWith("Spawn"))
+					{
+						spawns.Add(cell);
+					}
+					else
+					{
+						throw new ArgumentException("Invalid navigation marker name found: " + name);
+					}
+					break;
+			};
+		}
+
+		if (!endFound)
+		{
+			throw new Exception("No ending position is found in navigation map");
 		}
 	}
 
