@@ -7,7 +7,7 @@ public partial class RightHandController : XRController3D
 	[Export]
 	private PackedScene debugGizmo;
 
-	private Handle activeHandle = null;
+	private XRHandle activeHandle = null;
 
 	private Node3D debugGizmoInstance;
 
@@ -37,7 +37,7 @@ public partial class RightHandController : XRController3D
 		}
 	}
 
-	private Handle TryFindHandle(Vector3 position)
+	private XRHandle TryFindHandle(Vector3 position)
 	{
 		var query = new PhysicsPointQueryParameters3D();
 		query.Position = position;
@@ -56,7 +56,7 @@ public partial class RightHandController : XRController3D
 				continue;
 			}
 
-			if (collider.AsGodotObject() is Handle handle)
+			if (collider.AsGodotObject() is XRHandle handle)
 			{
 				return handle;
 			}

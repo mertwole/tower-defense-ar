@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://comoen40v8sea" path="res://GameField/snap_point.tscn" id="3_56ckc"]
 [ext_resource type="Script" path="res://GameField/PrepareField.cs" id="3_drv81"]
 [ext_resource type="MeshLibrary" uid="uid://c35h1067k8vc3" path="res://GameField/Tiles/snap_point_markers.tres" id="3_ja0ks"]
-[ext_resource type="Script" path="res://GameField/Enemies/Spawn.cs" id="5_xxoke"]
-[ext_resource type="PackedScene" uid="uid://sa7lp1gsjal1" path="res://GameField/Enemies/enemy.tscn" id="6_lp3k7"]
+[ext_resource type="Script" path="res://GameField/Enemy/Spawn.cs" id="5_xxoke"]
+[ext_resource type="PackedScene" uid="uid://sa7lp1gsjal1" path="res://GameField/Enemy/enemy.tscn" id="6_lp3k7"]
 [ext_resource type="MeshLibrary" uid="uid://p3uqx88ye3qb" path="res://GameField/Navigation/navigation_markers.tres" id="6_yh8el"]
 [ext_resource type="Script" path="res://GameField/Navigation/Navigation.cs" id="7_nuu3e"]
 

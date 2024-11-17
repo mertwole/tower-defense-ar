@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://csdrfd77n1q44"]
+
+[ext_resource type="Script" path="res://GameField/Turret/Turret.cs" id="1_aai7n"]
+[ext_resource type="Script" path="res://GameField/Turret/TurretHandle.cs" id="1_lb7cx"]
+[ext_resource type="PackedScene" uid="uid://dbndk0ifeiddm" path="res://GameField/Turret/Models/weapon-turret.fbx" id="1_x1a00"]
+[ext_resource type="PackedScene" uid="uid://l3sg63v0nlc6" path="res://GameField/Turret/Models/tower-round-base.fbx" id="2_e1525"]
+[ext_resource type="Script" path="res://GameField/Turret/BulletSpawn.cs" id="4_i7gq6"]
+[ext_resource type="PackedScene" uid="uid://yamhkx0epsgo" path="res://GameField/Turret/Ammo/bullet.tscn" id="5_h2enl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4a6te"]
+radius = 0.75
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q5pb5"]
+radius = 2.0
+
+[node name="Turret" type="Node3D" node_paths=PackedStringArray("body", "bulletSpawn")]
+script = ExtResource("1_aai7n")
+cooldown = 1.0
+body = NodePath("Body")
+bulletSpawn = NodePath("Body/BulletSpawn")
+
+[node name="Handle" type="Area3D" parent="." node_paths=PackedStringArray("weapon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231122, 0)
+script = ExtResource("1_lb7cx")
+weapon = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Handle"]
+shape = SubResource("SphereShape3D_4a6te")
+
+[node name="DiscoveryRange" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DiscoveryRange"]
+shape = SubResource("SphereShape3D_q5pb5")
+
+[node name="Body" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20801, 0)
+
+[node name="Model" parent="Body" instance=ExtResource("1_x1a00")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.000344336, -0.0499619, -3.67761e-05)
+
+[node name="BulletSpawn" type="Node3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20801, 0)
+script = ExtResource("4_i7gq6")
+bullet = ExtResource("5_h2enl")
+
+[node name="Spawn1" type="Node3D" parent="Body/BulletSpawn"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0714886, 0.498778, -0.211817)
+
+[node name="Spawn2" type="Node3D" parent="Body/BulletSpawn"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0692697, 0.498778, -0.209852)
+
+[node name="Base" parent="." instance=ExtResource("2_e1525")]
+
+[connection signal="area_entered" from="DiscoveryRange" to="." method="EnemyEnteredRange"]
+[connection signal="area_exited" from="DiscoveryRange" to="." method="EnemyExitedRange"]
