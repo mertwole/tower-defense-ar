@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://yamhkx0epsgo"]
+
+[ext_resource type="PackedScene" uid="uid://cthaios25s8o1" path="res://GameField/Turret/Ammo/weapon-ammo-bullet.fbx" id="1_ielct"]
+[ext_resource type="Script" path="res://GameField/Turret/Ammo/Bullet.cs" id="1_y02y6"]
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_y02y6")
+velocity = 1.0
+
+[node name="Model" parent="." instance=ExtResource("1_ielct")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

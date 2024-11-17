@@ -8,8 +8,12 @@ public partial class Turret : Node3D
 	private float cooldown;
 	[Export]
 	private Node3D body;
+	[Export]
+	private BulletSpawn bulletSpawn;
 
 	private Dictionary<Area3D, Enemy> enemiesInRange = new Dictionary<Area3D, Enemy>();
+
+	private float fromLatestFire = 0.0f;
 
 	public override void _Process(double delta)
 	{
@@ -17,6 +21,13 @@ public partial class Turret : Node3D
 		if (closestEnemy != null)
 		{
 			body.LookAt(closestEnemy.GlobalPosition);
+		}
+
+		fromLatestFire += (float)delta;
+		if (fromLatestFire >= cooldown)
+		{
+			fromLatestFire = 0;
+			bulletSpawn.Fire();
 		}
 	}
 
