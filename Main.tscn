@@ -47,8 +47,8 @@ show_when_tracked = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"/user/fbhandaim/right"
 script = ExtResource("6_jy0x6")
-handInput = NodePath("../RightHandTracker/RightHand")
 debugGizmo = ExtResource("7_dq6xb")
+handInput = NodePath("../RightHandTracker/RightHand")
 
 [node name="RightHandTracker" type="XRNode3D" parent="XROrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
