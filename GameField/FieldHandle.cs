@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class FieldHandle : Handle
+public partial class FieldHandle : XRHandle
 {
     [Export]
     private Node3D field;

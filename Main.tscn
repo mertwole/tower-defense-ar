@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bofws41roxivm" path="res://gizmo.tscn" id="7_dq6xb"]
 [ext_resource type="PackedScene" uid="uid://c8xfcmfrmpvl8" path="res://Hands/RightHand.tscn" id="7_veijl"]
 [ext_resource type="PackedScene" uid="uid://hyayrl1i7360" path="res://GameField/game_field.tscn" id="8_2b5ty"]
-[ext_resource type="PackedScene" uid="uid://csdrfd77n1q44" path="res://GameField/Building/turret.tscn" id="9_hi3gv"]
+[ext_resource type="PackedScene" uid="uid://csdrfd77n1q44" path="res://GameField/Turret/turret.tscn" id="9_hi3gv"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_awuli")
