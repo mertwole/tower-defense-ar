@@ -4,6 +4,8 @@ public partial class Enemy : Node3D
 {
 	[Export]
 	private float speed;
+	[Export]
+	private int hp;
 
 	Navigation navigation;
 	Vector3I position;
@@ -48,6 +50,15 @@ public partial class Enemy : Node3D
 
 			position += direction;
 			GlobalPosition = targetPosition;
+		}
+	}
+
+	public void Damage(int damage)
+	{
+		hp -= damage;
+		if (hp <= 0)
+		{
+			QueueFree();
 		}
 	}
 }

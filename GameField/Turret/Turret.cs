@@ -33,7 +33,7 @@ public partial class Turret : Node3D
 
 	private void EnemyEnteredRange(Area3D enemy)
 	{
-		var enemyScript = TryFindEnemy(enemy);
+		var enemyScript = enemy.TryFindParentRecursive<Enemy>();
 		if (enemyScript != null)
 		{
 			enemiesInRange.Add(enemy, enemyScript);
@@ -43,27 +43,5 @@ public partial class Turret : Node3D
 	private void EnemyExitedRange(Area3D enemy)
 	{
 		enemiesInRange.Remove(enemy);
-	}
-
-	private Enemy TryFindEnemy(Area3D hitbox)
-	{
-		Node3D current = hitbox;
-		while (true)
-		{
-			if (current is Enemy enemy)
-			{
-				return enemy;
-			}
-
-			var parent = current.GetParentNode3D();
-			if (parent == null)
-			{
-				return null;
-			}
-			else
-			{
-				current = parent;
-			}
-		}
 	}
 }

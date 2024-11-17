@@ -5,11 +5,10 @@ using System.Linq;
 public partial class BulletSpawn : Node3D
 {
 	[Export]
-	PackedScene bullet;
+	private PackedScene bullet;
 
-	List<Node3D> spawnPoints;
-
-	int lastFired = -1;
+	private List<Node3D> spawnPoints;
+	private int lastFired = -1;
 
 	public override void _Ready()
 	{

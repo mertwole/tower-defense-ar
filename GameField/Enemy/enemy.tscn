@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://vmgn7woy0peg" path="res://GameField/Enemy/Models/enemy-ufo-beam.fbx" id="2_wbm32"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ufcnn"]
-radius = 0.566052
+radius = 0.5062
 
 [node name="Enemy" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00105023, 0.00375998, -0.00119138)
 script = ExtResource("1_kofpg")
 speed = 0.2
+hp = 5
 
 [node name="Model" parent="." instance=ExtResource("1_3orc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.833584, 0)
