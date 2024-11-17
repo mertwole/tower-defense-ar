@@ -61,13 +61,13 @@ show_when_tracked = true
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0144036, 1.1029, -0.525513)
 
 [node name="Turret" parent="XROrigin/GameField" instance=ExtResource("9_hi3gv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.392517, 0.182116, -0.462668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31632, 0.182116, -3.94837)
 
 [node name="Turret2" parent="XROrigin/GameField" instance=ExtResource("9_hi3gv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62568, 0.285282, -2.53946)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.08316, 0.285282, -6.02516)
 
 [node name="Turret3" parent="XROrigin/GameField" instance=ExtResource("9_hi3gv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44077, 0.422853, 1.4262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26807, 0.422852, -2.0595)
 
 [connection signal="button_pressed" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonPressed"]
 [connection signal="button_released" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonReleased"]

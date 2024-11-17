@@ -17,17 +17,18 @@ public partial class Turret : Node3D
 
 	public override void _Process(double delta)
 	{
+		fromLatestFire += (float)delta;
+
 		var closestEnemy = enemiesInRange.Keys.MinBy(area => area.GlobalPosition.DistanceSquaredTo(GlobalPosition));
 		if (closestEnemy != null)
 		{
 			body.LookAt(closestEnemy.GlobalPosition);
-		}
 
-		fromLatestFire += (float)delta;
-		if (fromLatestFire >= cooldown)
-		{
-			fromLatestFire = 0;
-			bulletSpawn.Fire();
+			if (fromLatestFire >= cooldown)
+			{
+				fromLatestFire = 0;
+				bulletSpawn.Fire();
+			}
 		}
 	}
 

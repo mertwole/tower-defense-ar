@@ -11,7 +11,7 @@
 radius = 0.75
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_q5pb5"]
-radius = 5.0
+radius = 2.0
 
 [node name="Turret" type="Node3D" node_paths=PackedStringArray("body", "bulletSpawn")]
 script = ExtResource("1_aai7n")
