@@ -105,8 +105,8 @@ bind/24/pose = Transform3D(-0.0340048, -0.961705, 0.271969, 0.359157, -0.265706,
 
 [node name="LeftHand" type="Node3D"]
 script = ExtResource("1_pnpij")
-indexTipBoneName = "LeftIndexTip"
 thumbTipBoneName = "LeftThumbTip"
+indexTipBoneName = "LeftIndexTip"
 
 [node name="LeftHandHumanoid" type="Node3D" parent="."]
 

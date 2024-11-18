@@ -36,6 +36,9 @@ tracker = &"/user/hand_tracker/left"
 show_when_tracked = true
 
 [node name="LeftHand" parent="XROrigin/LeftHandTracker" instance=ExtResource("6_ju36i")]
+middleTipBoneName = "LeftMiddleTip"
+ringTipBoneName = "LeftRingTip"
+littleTipBoneName = "LeftLittleTip"
 
 [node name="RightHandInput" type="XRController3D" parent="XROrigin" node_paths=PackedStringArray("handInput")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
@@ -49,6 +52,9 @@ tracker = &"/user/hand_tracker/right"
 show_when_tracked = true
 
 [node name="RightHand" parent="XROrigin/RightHandTracker" instance=ExtResource("7_veijl")]
+middleTipBoneName = "RightMiddleTip"
+ringTipBoneName = "RightRingTip"
+littleTipBoneName = "RightLittleTip"
 
 [node name="GameField" parent="XROrigin" instance=ExtResource("8_2b5ty")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0144036, 1.1029, -0.525513)
