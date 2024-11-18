@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class ReadInput : Node3D
+public partial class ReadInput : Skeleton3D
 {
 	[Export]
 	private string thumbTipBoneName;
@@ -12,8 +12,6 @@ public partial class ReadInput : Node3D
 	private string ringTipBoneName;
 	[Export]
 	private string littleTipBoneName;
-
-	Skeleton3D skeleton;
 
 	int thumbFingerTipBone;
 	int indexFingerTipBone;
@@ -29,21 +27,19 @@ public partial class ReadInput : Node3D
 
 	public override void _Ready()
 	{
-		skeleton = FindChild("Skeleton3D", true) as Skeleton3D;
-
-		thumbFingerTipBone = skeleton.FindBone(thumbTipBoneName);
-		indexFingerTipBone = skeleton.FindBone(indexTipBoneName);
-		middleFingerTipBone = skeleton.FindBone(middleTipBoneName);
-		ringFingerTipBone = skeleton.FindBone(ringTipBoneName);
-		littleFingerTipBone = skeleton.FindBone(littleTipBoneName);
+		thumbFingerTipBone = FindBone(thumbTipBoneName);
+		indexFingerTipBone = FindBone(indexTipBoneName);
+		middleFingerTipBone = FindBone(middleTipBoneName);
+		ringFingerTipBone = FindBone(ringTipBoneName);
+		littleFingerTipBone = FindBone(littleTipBoneName);
 	}
 
 	public override void _Process(double delta)
 	{
-		ThumbTipPosition = skeleton.ToGlobal(skeleton.GetBoneGlobalPoseNoOverride(thumbFingerTipBone).Origin);
-		IndexTipPosition = skeleton.ToGlobal(skeleton.GetBoneGlobalPoseNoOverride(indexFingerTipBone).Origin);
-		MiddleTipPosition = skeleton.ToGlobal(skeleton.GetBoneGlobalPoseNoOverride(middleFingerTipBone).Origin);
-		RingTipPosition = skeleton.ToGlobal(skeleton.GetBoneGlobalPoseNoOverride(ringFingerTipBone).Origin);
-		LittleTipPosition = skeleton.ToGlobal(skeleton.GetBoneGlobalPoseNoOverride(littleFingerTipBone).Origin);
+		ThumbTipPosition = ToGlobal(GetBoneGlobalPoseNoOverride(thumbFingerTipBone).Origin);
+		IndexTipPosition = ToGlobal(GetBoneGlobalPoseNoOverride(indexFingerTipBone).Origin);
+		MiddleTipPosition = ToGlobal(GetBoneGlobalPoseNoOverride(middleFingerTipBone).Origin);
+		RingTipPosition = ToGlobal(GetBoneGlobalPoseNoOverride(ringFingerTipBone).Origin);
+		LittleTipPosition = ToGlobal(GetBoneGlobalPoseNoOverride(littleFingerTipBone).Origin);
 	}
 }
