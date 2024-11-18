@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm3jwptrrf4tg"]
+[gd_scene load_steps=9 format=3 uid="uid://bm3jwptrrf4tg"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_awuli"]
 [ext_resource type="Script" path="res://Spatial/scene_manager.gd" id="4_6rs5d"]
 [ext_resource type="PackedScene" uid="uid://ddcd7dxmh4qu" path="res://Spatial/env_object.tscn" id="4_y7ggk"]
 [ext_resource type="PackedScene" uid="uid://tq6vijbgmadj" path="res://Hands/LeftHand.tscn" id="6_ju36i"]
-[ext_resource type="Script" path="res://Hands/RightHandController.cs" id="6_jy0x6"]
-[ext_resource type="PackedScene" uid="uid://bofws41roxivm" path="res://Common/gizmo.tscn" id="7_dq6xb"]
+[ext_resource type="Script" path="res://Hands/HandInput.cs" id="6_jy0x6"]
 [ext_resource type="PackedScene" uid="uid://c8xfcmfrmpvl8" path="res://Hands/RightHand.tscn" id="7_veijl"]
 [ext_resource type="PackedScene" uid="uid://hyayrl1i7360" path="res://GameField/game_field.tscn" id="8_2b5ty"]
 [ext_resource type="PackedScene" uid="uid://csdrfd77n1q44" path="res://GameField/Turret/turret.tscn" id="9_hi3gv"]
@@ -26,15 +25,10 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 default_scene = ExtResource("4_y7ggk")
 script = ExtResource("4_6rs5d")
 
-[node name="LeftController" type="XRController3D" parent="XROrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-tracker = &"left_hand"
-show_when_tracked = true
-
-[node name="RightController" type="XRController3D" parent="XROrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-tracker = &"right_hand"
-show_when_tracked = true
+[node name="LeftHandInput" type="XRController3D" parent="XROrigin" node_paths=PackedStringArray("handInput")]
+tracker = &"/user/fbhandaim/left"
+script = ExtResource("6_jy0x6")
+handInput = NodePath("../LeftHandTracker/LeftHand")
 
 [node name="LeftHandTracker" type="XRNode3D" parent="XROrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
@@ -48,7 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"/user/fbhandaim/right"
 script = ExtResource("6_jy0x6")
 handInput = NodePath("../RightHandTracker/RightHand")
-debugGizmo = ExtResource("7_dq6xb")
 
 [node name="RightHandTracker" type="XRNode3D" parent="XROrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
@@ -69,5 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.08316, 0.285282, -6.02516)
 [node name="Turret3" parent="XROrigin/GameField" instance=ExtResource("9_hi3gv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26807, 0.422852, -2.0595)
 
+[connection signal="button_pressed" from="XROrigin/LeftHandInput" to="XROrigin/LeftHandInput" method="OnButtonPressed"]
+[connection signal="button_released" from="XROrigin/LeftHandInput" to="XROrigin/LeftHandInput" method="OnButtonReleased"]
 [connection signal="button_pressed" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonPressed"]
 [connection signal="button_released" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonReleased"]

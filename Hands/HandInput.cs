@@ -1,15 +1,11 @@
 using Godot;
 
-public partial class RightHandController : XRController3D
+public partial class HandInput : XRController3D
 {
 	[Export]
 	private ReadInput handInput;
-	[Export]
-	private PackedScene debugGizmo;
 
 	private XRHandle activeHandle = null;
-
-	private Node3D debugGizmoInstance;
 
 	public override void _Process(double delta)
 	{
@@ -21,7 +17,6 @@ public partial class RightHandController : XRController3D
 		if (name == "index_pinch")
 		{
 			var position = handInput.PinchPosition;
-			UpdateDebugGizmo(position);
 
 			activeHandle = TryFindHandle(position);
 			activeHandle?.Take(position);
@@ -63,16 +58,5 @@ public partial class RightHandController : XRController3D
 		}
 
 		return null;
-	}
-
-	void UpdateDebugGizmo(Vector3 position)
-	{
-		if (debugGizmoInstance == null)
-		{
-			debugGizmoInstance = debugGizmo.Instantiate() as Node3D;
-			GetTree().Root.AddChild(debugGizmoInstance);
-		}
-
-		debugGizmoInstance.Position = position;
 	}
 }
