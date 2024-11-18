@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bm3jwptrrf4tg"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_awuli"]
-[ext_resource type="Script" path="res://scene_manager.gd" id="4_6rs5d"]
+[ext_resource type="Script" path="res://Spatial/scene_manager.gd" id="4_6rs5d"]
 [ext_resource type="PackedScene" uid="uid://ddcd7dxmh4qu" path="res://Spatial/env_object.tscn" id="4_y7ggk"]
 [ext_resource type="PackedScene" uid="uid://tq6vijbgmadj" path="res://Hands/LeftHand.tscn" id="6_ju36i"]
 [ext_resource type="Script" path="res://Hands/RightHandController.cs" id="6_jy0x6"]
-[ext_resource type="PackedScene" uid="uid://bofws41roxivm" path="res://gizmo.tscn" id="7_dq6xb"]
+[ext_resource type="PackedScene" uid="uid://bofws41roxivm" path="res://Common/gizmo.tscn" id="7_dq6xb"]
 [ext_resource type="PackedScene" uid="uid://c8xfcmfrmpvl8" path="res://Hands/RightHand.tscn" id="7_veijl"]
 [ext_resource type="PackedScene" uid="uid://hyayrl1i7360" path="res://GameField/game_field.tscn" id="8_2b5ty"]
 [ext_resource type="PackedScene" uid="uid://csdrfd77n1q44" path="res://GameField/Turret/turret.tscn" id="9_hi3gv"]
@@ -47,8 +47,8 @@ show_when_tracked = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"/user/fbhandaim/right"
 script = ExtResource("6_jy0x6")
-debugGizmo = ExtResource("7_dq6xb")
 handInput = NodePath("../RightHandTracker/RightHand")
+debugGizmo = ExtResource("7_dq6xb")
 
 [node name="RightHandTracker" type="XRNode3D" parent="XROrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
