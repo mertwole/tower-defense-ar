@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="VRPlayground"
+project/assembly_name="TowerDefense"
 
 [rendering]
 
@@ -27,6 +27,7 @@ textures/vram_compression/import_etc2_astc=true
 [xr]
 
 openxr/enabled=true
+openxr/default_action_map="res://Hands/openxr_action_map.tres"
 openxr/environment_blend_mode=2
 openxr/submit_depth_buffer=true
 openxr/extensions/hand_interaction_profile=true

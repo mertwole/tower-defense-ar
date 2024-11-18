@@ -1,14 +1,16 @@
 [gd_scene load_steps=10 format=3 uid="uid://bm3jwptrrf4tg"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_awuli"]
-[ext_resource type="Script" path="res://scene_manager.gd" id="4_6rs5d"]
+[ext_resource type="Script" path="res://Spatial/scene_manager.gd" id="4_6rs5d"]
 [ext_resource type="PackedScene" uid="uid://ddcd7dxmh4qu" path="res://Spatial/env_object.tscn" id="4_y7ggk"]
-[ext_resource type="PackedScene" uid="uid://tq6vijbgmadj" path="res://Hands/LeftHand.tscn" id="6_ju36i"]
-[ext_resource type="Script" path="res://Hands/RightHandController.cs" id="6_jy0x6"]
-[ext_resource type="PackedScene" uid="uid://bofws41roxivm" path="res://gizmo.tscn" id="7_dq6xb"]
-[ext_resource type="PackedScene" uid="uid://c8xfcmfrmpvl8" path="res://Hands/RightHand.tscn" id="7_veijl"]
+[ext_resource type="Script" path="res://Hands/HandInput.cs" id="6_jy0x6"]
 [ext_resource type="PackedScene" uid="uid://hyayrl1i7360" path="res://GameField/game_field.tscn" id="8_2b5ty"]
+[ext_resource type="Script" path="res://Hands/ReadInput.cs" id="9_djgep"]
 [ext_resource type="PackedScene" uid="uid://csdrfd77n1q44" path="res://GameField/Turret/turret.tscn" id="9_hi3gv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jclcl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odehl"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_awuli")
@@ -26,37 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 default_scene = ExtResource("4_y7ggk")
 script = ExtResource("4_6rs5d")
 
-[node name="LeftController" type="XRController3D" parent="XROrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-tracker = &"left_hand"
-show_when_tracked = true
-
-[node name="RightController" type="XRController3D" parent="XROrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-tracker = &"right_hand"
-show_when_tracked = true
-
-[node name="LeftHandTracker" type="XRNode3D" parent="XROrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-tracker = &"/user/hand_tracker/left"
-show_when_tracked = true
-
-[node name="LeftHand" parent="XROrigin/LeftHandTracker" instance=ExtResource("6_ju36i")]
-
-[node name="RightHandInput" type="XRController3D" parent="XROrigin" node_paths=PackedStringArray("handInput")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-tracker = &"/user/fbhandaim/right"
-script = ExtResource("6_jy0x6")
-debugGizmo = ExtResource("7_dq6xb")
-handInput = NodePath("../RightHandTracker/RightHand")
-
-[node name="RightHandTracker" type="XRNode3D" parent="XROrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-tracker = &"/user/hand_tracker/right"
-show_when_tracked = true
-
-[node name="RightHand" parent="XROrigin/RightHandTracker" instance=ExtResource("7_veijl")]
-
 [node name="GameField" parent="XROrigin" instance=ExtResource("8_2b5ty")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.0144036, 1.1029, -0.525513)
 
@@ -69,5 +40,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.08316, 0.285282, -6.02516)
 [node name="Turret3" parent="XROrigin/GameField" instance=ExtResource("9_hi3gv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26807, 0.422852, -2.0595)
 
+[node name="LeftHandInput" type="XRController3D" parent="XROrigin" node_paths=PackedStringArray("handInput")]
+tracker = &"/user/fbhandaim/left"
+script = ExtResource("6_jy0x6")
+handInput = NodePath("../LeftHandTracker/OpenXRFbHandTrackingMesh")
+
+[node name="LeftHandTracker" type="XRNode3D" parent="XROrigin"]
+tracker = &"/user/hand_tracker/left"
+show_when_tracked = true
+
+[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XROrigin/LeftHandTracker"]
+material = SubResource("StandardMaterial3D_jclcl")
+script = ExtResource("9_djgep")
+thumbTipBoneName = "LeftThumbTip"
+indexTipBoneName = "LeftIndexTip"
+middleTipBoneName = "LeftMiddleTip"
+ringTipBoneName = "LeftRingTip"
+littleTipBoneName = "LeftLittleTip"
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin/LeftHandTracker/OpenXRFbHandTrackingMesh"]
+
+[node name="RightHandInput" type="XRController3D" parent="XROrigin" node_paths=PackedStringArray("handInput")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"/user/fbhandaim/right"
+script = ExtResource("6_jy0x6")
+handInput = NodePath("../RightHandTracker/OpenXRFbHandTrackingMesh")
+
+[node name="RightHandTracker" type="XRNode3D" parent="XROrigin"]
+tracker = &"/user/hand_tracker/right"
+show_when_tracked = true
+
+[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XROrigin/RightHandTracker"]
+hand = 1
+material = SubResource("StandardMaterial3D_odehl")
+bones/0/name = "RightPalm"
+bones/1/name = "RightHand"
+bones/2/name = "RightThumbMetacarpal"
+bones/3/name = "RightThumbProximal"
+bones/4/name = "RightThumbDistal"
+bones/5/name = "RightThumbTip"
+bones/6/name = "RightIndexMetacarpal"
+bones/7/name = "RightIndexProximal"
+bones/8/name = "RightIndexIntermediate"
+bones/9/name = "RightIndexDistal"
+bones/10/name = "RightIndexTip"
+bones/11/name = "RightMiddleMetacarpal"
+bones/12/name = "RightMiddleProximal"
+bones/13/name = "RightMiddleIntermediate"
+bones/14/name = "RightMiddleDistal"
+bones/15/name = "RightMiddleTip"
+bones/16/name = "RightRingMetacarpal"
+bones/17/name = "RightRingProximal"
+bones/18/name = "RightRingIntermediate"
+bones/19/name = "RightRingDistal"
+bones/20/name = "RightRingTip"
+bones/21/name = "RightLittleMetacarpal"
+bones/22/name = "RightLittleProximal"
+bones/23/name = "RightLittleIntermediate"
+bones/24/name = "RightLittleDistal"
+bones/25/name = "RightLittleTip"
+script = ExtResource("9_djgep")
+thumbTipBoneName = "RightThumbTip"
+indexTipBoneName = "RightIndexTip"
+middleTipBoneName = "RightMiddleTip"
+ringTipBoneName = "RightRingTip"
+littleTipBoneName = "RightLittleTip"
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin/RightHandTracker/OpenXRFbHandTrackingMesh"]
+hand_tracker = &"/user/hand_tracker/right"
+
+[connection signal="button_pressed" from="XROrigin/LeftHandInput" to="XROrigin/LeftHandInput" method="OnButtonPressed"]
+[connection signal="button_released" from="XROrigin/LeftHandInput" to="XROrigin/LeftHandInput" method="OnButtonReleased"]
 [connection signal="button_pressed" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonPressed"]
 [connection signal="button_released" from="XROrigin/RightHandInput" to="XROrigin/RightHandInput" method="OnButtonReleased"]
