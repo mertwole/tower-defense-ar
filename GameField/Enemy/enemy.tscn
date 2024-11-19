@@ -7,8 +7,9 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_ufcnn"]
 radius = 0.5062
 
-[node name="Enemy" type="Node3D"]
+[node name="Enemy" type="PathFollow3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00105023, 0.00375998, -0.00119138)
+loop = false
 script = ExtResource("1_kofpg")
 speed = 0.2
 hp = 5
@@ -17,7 +18,6 @@ hp = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.833584, 0)
 
 [node name="Beam" parent="." instance=ExtResource("2_wbm32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.162444, 0)
 
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08186, 0)
