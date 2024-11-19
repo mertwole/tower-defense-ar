@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://v386lksvoosg"]
+
+[ext_resource type="Script" path="res://Spatial/table.gd" id="1_nwgsc"]
+[ext_resource type="PackedScene" uid="uid://hyayrl1i7360" path="res://GameField/game_field.tscn" id="2_4i60y"]
+
+[node name="Table" type="Node3D"]
+script = ExtResource("1_nwgsc")
+game_field = ExtResource("2_4i60y")
