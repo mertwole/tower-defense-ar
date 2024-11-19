@@ -18,6 +18,7 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 script = ExtResource("1_6fob1")
 
 [node name="Path" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14, 0)
 curve = SubResource("Curve3D_ev7ab")
 script = ExtResource("2_l8hma")
 enemy = ExtResource("6_lp3k7")
